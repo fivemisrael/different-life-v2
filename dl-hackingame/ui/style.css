@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap');
+
+#hacking-container {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    width: 1000px;
+    height: 750px;
+
+}
+
+#loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    width: 524px;
+    height: 100px;
+    
+    background: #1C1C1C;
+    border-radius: 15px;
+}
+#hacking-failed {
+    display: none; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    width: 524px;
+    height: 100px;
+    
+    background: #1C1C1C;
+    border-radius: 15px;
+}
+#hacking-success {
+    display: none; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    width: 524px;
+    height: 100px;
+    
+    background: #1C1C1C;
+    border-radius: 15px;
+}
+
+#loading-bear {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+    animation-name: bear;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+
+}
+#failed-bear {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+}
+#loading-text {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+    color: white;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+
+}
+#failed-text {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+    color: white;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+
+}
+
+
+#loading-text::after {
+    content:"";
+    animation:  spin 10s linear 1; 
+}
+
+@keyframes bear {
+    0%   {content:url("bear-imgs/dlbear_1.png");}
+    33.33%  {content:url("bear-imgs/dlbear_2.png");}
+    66.66% {content:url("bear-imgs/dlbear_3.png");}
+    100% {content:url("bear-imgs/dlbear_1.png");}
+}
+
+
+@keyframes spin {
+    0%  {content:"Preparing.";}
+    10% {content:"Preparing..";}
+    20% {content:"Preparing...";}
+    30% {content:"Fetching.";}
+    40% {content:"Fetching..";}
+    50% {content:"Fetching...";}
+    60% {content:"Logging In.";}
+    70% {content:"Logging In..";}
+    80% {content:"Logging In...";}
+    100% {content:"Ready?";}
+}
+
+#hacking-minigame {
+    display: none;  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    background: #1C1C1C;
+    width: 800px;
+    height: 450px;
+    border-radius: 15px;
+
+}
+#points {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 750px;
+    height: 390px;
+    background: #2D2D2D;
+    border-radius: 15px;
+} 
+
+#points > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #4DD5F1;
+}
+
+
+
+#life1 {
+    position: absolute;
+    top: 10%;
+    left: 14%;
+
+    transform: translate(-50%, -50%);
+    color: #ffff;
+    font-size: 23px;
+}
+#life2 {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+
+    transform: translate(-50%, -50%);
+    color: #ffff;
+    font-size: 23px;
+}
+#life3 {
+    position: absolute;
+    top: 10%;
+    left: 6%;
+
+    transform: translate(-50%, -50%);
+    color: #ffff;
+    font-size: 23px;
+}
+
+#amount {
+    position: absolute;
+    top: 3.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+    color: rgb(255, 255, 255);
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+
+
+}

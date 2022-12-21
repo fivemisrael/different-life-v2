@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+        <script src="https://kit.fontawesome.com/6b037c9e5a.js" crossorigin="anonymous"></script>
+    </head>
+
+    <style>
+            *{
+                user-select: none;
+                outline: none;
+                font-family: sans-serif;
+                text-transform: uppercase;
+            }
+
+            .main {
+                display: none;
+                position: absolute;
+                transform: translate(-5%,-50%);
+                top: 50%;
+                left: 5%;
+            }
+
+            .continer {
+                display: flex;
+                width: 350px;
+                height: 50px;
+                background-color: black;
+                border-radius: 3px;
+                margin-bottom: 10px;
+                color: white;
+                transition: 0.2s;
+                box-shadow: 0 0 5px 0px black;
+                transform: scale(1);
+                position: relative;
+                align-items: center;
+            }
+
+            .continer.title {
+                text-align: center;
+                width: 350px;
+                height: 50px;
+                background-color: #4DD5F1;
+                border-radius: 3px;
+                margin-bottom: 10px;
+                color: white;
+            }
+
+            .iconbox{
+                position: absolute;
+                right:10px;
+                font-size:20px;
+            }
+
+            .save { 
+                margin-right:5px;
+            }
+
+            .continer:hover:not(.title){
+                background-color: white;
+                color: black;
+                transform: scale(1.1);
+            }
+
+            .text {
+                font-family: Calibri;
+                font-size: large;
+                font-weight: bold;
+                padding-left: 10px;
+            }
+
+    </style>
+
+    <script>
+
+        $(document).ready(function(){
+            function CloseUi() {
+                fetch(`https://${GetParentResourceName()}/CloseUi`, {method: "POST", headers: {"Content-Type": "application/json; charset=UTF-8"}, body: JSON.stringify({})});
+            }
+
+            function SpawnVehicle(ModelName) {
+                fetch(`https://${GetParentResourceName()}/SpawnVehicle`, {method: "POST", headers: {"Content-Type": "application/json; charset=UTF-8"}, body: JSON.stringify({"Model": ModelName})});
+            }
+            
+            document.onkeyup = function(data) {
+                if (data.which == 27) {
+                    CloseUi();
+                }
+            };
+
+            window.addEventListener("message", function(Event) {
+                let Action = Event.data;
+                if (Action.open == "true") {
+                    $(".main").html("");
+                    var title = `
+                        <div class="continer title">
+                            <span class="text">${Action.Title}</span>
+                        </div>
+                    `
+                    $(".main").append(title)
+                    for (var Index = 0, Max = Action.data.length; Index < Max; Index++) {
+                        let Label = Action.data[Index]["Label"]
+                        let Model = Action.data[Index]["Model"]
+                        var html = `
+                        <div class="continer" data-model="${Model}">
+                            <div class="iconbox">
+                                <i class="fas fa-arrow-circle-right btn"></i>
+                            </div>
+                
+                            <span class="text">${Label}</span>
+                        </div>
+                        `
+                        $(".main").append(html)
+                    }
+
+                    $(".main").slideDown();
+
+                }
+                else if (Action.open == "false"){
+                    $(".main").slideUp();
+                }
+            })
+
+            $(".main").on("click",".btn",function(){
+                var data = $(this).parent().parent().data("model");
+                SpawnVehicle(data);
+                CloseUi();
+            });
+        });
+
+    </script>
+
+    <body>
+        <div class="main"></div>
+    </body>
+</html>

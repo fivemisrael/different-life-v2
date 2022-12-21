@@ -1,0 +1,664 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;700&display=swap');
+
+#notif-container {
+    display: none;
+    width: 250px;
+    height: 30px;
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    border-top: 5px solid #4DD5F1;
+    background-color: #1C1C1C;    
+}
+
+#notif-text {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 15px;
+    line-height: 2px;
+    text-align: center;
+
+    width: 280px;
+
+    color: #FFFFFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+#notif-icon {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 5.5%;
+    transform: translate(-50%, -50%);
+}
+
+#banking-container {
+    display: none;
+    /* display: none; */
+    width: 1250px;
+    height: 750px;
+    background-color: #1C1C1C;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 15px;
+    transform: translate(-50%, -50%);
+    border-top: 10px solid #4DD5F1;
+}
+
+#title {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 65px;
+    line-height: 52px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+#header {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1250px;
+    height: 250px;
+}
+#hr1 {
+    position: absolute;
+    top: calc(100% - 170px);
+    
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: calc(100% - 80px);
+    height: 1px;
+
+    background: #7B7B7B;
+    border-radius: 10px;
+}
+
+#hr2 {
+    position: absolute;
+    top: 53%;
+    
+    left: 16%;
+    transform: translate(-50%, -50%);
+    
+    width: 250px;
+    height: 1px;
+
+    background: #7B7B7B;
+    border-radius: 10px;
+}
+
+#information {
+    position: absolute;
+    top: 53%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+   
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: space-between;
+
+    height: 500px;
+    width: 300px;
+}
+
+#information > h1 {
+    color: white;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 2px;
+    text-align: center;
+
+}
+
+#payments > h1 {
+    color: white;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 2px;
+    text-align: center;
+    color: white;
+}
+
+
+
+#information > div{
+    outline: none;
+    border: none;
+    width: 250px;
+    height: 45px;
+
+    color: #636363;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 15px;
+    background-color: #2D2D2D;
+    border-radius: 20px;
+
+}
+
+
+::placeholder {
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+
+    color: #636363;
+
+}
+
+#free-actions {
+    position: absolute;
+    top: 65%;
+    left: 16%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    width: 240px;
+    height: 100px;
+}
+
+#free-deposit {
+    position: absolute;
+    top: 35%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+
+    width: 100px;
+    height: 28px;
+
+
+    outline: none;
+    border: none;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 20px;
+    background-color: #2D2D2D;
+    border-radius: 20px;
+
+}
+#free-withdraw {
+    position: absolute;
+    top: 35%;
+    left: 22%;
+    transform: translate(-50%, -50%);
+
+    width: 100px;
+    height: 28px;
+
+
+    outline: none;
+    border: none;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 20px;
+    background-color: #2D2D2D;
+    border-radius: 20px;
+
+}
+
+
+#free-action-withdraw {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+
+    position: absolute;
+    top: 5%;
+    left: 22%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+#free-action-deposit {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+
+    position: absolute;
+    top: 5%;
+    left: 80.8%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+#free-action::before {
+    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f007";
+}
+
+#free-withdraw-text {
+
+    position: absolute;
+    top: -12px;
+    left: 31.5%;
+    transform: translate(-50%, -50%);
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    text-align: center;
+    color: #FFFFFF;
+    border-radius: 20px;
+
+}
+
+
+#const-actions {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 410px;
+    height: 480px;
+    background-color: #2D2D2D;
+    border-radius: 15px;
+    border-top: 5px solid #4DD5F1
+
+}
+
+#withdraw-title {
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 29px;
+    line-height: 52px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+#deposit-title {
+    position: absolute;
+    top: 33%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 29px;
+    line-height: 52px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+
+#withdraw-100:hover, #deposit-100:hover, #withdraw-500:hover, #deposit-500:hover, #withdraw-1000:hover, #deposit-1000:hover {
+    background-color: #080808;
+    transition: background-color 250ms
+}
+
+
+#withdraw-100 {
+    background-color: #1C1C1C;
+    border-radius: 15px;
+    width: 100px;
+    height: 50px;
+    color: white;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 29px;
+    line-height: 52px;
+    text-align: center;
+
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+
+
+}
+#deposit-100 {
+    background-color: #1C1C1C;
+    border-radius: 15px;
+    width: 100px;
+    height: 50px;
+    color: white;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 29px;
+    line-height: 52px;
+    text-align: center;
+
+    position: absolute;
+    top: 45%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+
+
+}
+#withdraw-500 {
+    background-color: #1C1C1C;
+    border-radius: 15px;
+    width: 100px;
+    height: 50px;
+    color: white;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 29px;
+    line-height: 52px;
+    text-align: center;
+
+    position: absolute;
+    top: 20%;
+    left: 50.3%;
+    transform: translate(-50%, -50%);
+
+
+}
+#deposit-500 {
+    background-color: #1C1C1C;
+    border-radius: 15px;
+    width: 100px;
+    height: 50px;
+    color: white;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 29px;
+    line-height: 52px;
+    text-align: center;
+
+    position: absolute;
+    top: 45%;
+    left: 50.3%;
+    transform: translate(-50%, -50%);
+
+
+}
+#withdraw-1000 {
+    background-color: #1C1C1C;
+    border-radius: 15px;
+    width: 100px;
+    height: 50px;
+    color: white;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 29px;
+    line-height: 52px;
+    text-align: center;
+
+    position: absolute;
+    top: 20%;
+    left: 81%;
+    transform: translate(-50%, -50%);
+
+
+}
+#deposit-1000 {
+    background-color: #1C1C1C;
+    border-radius: 15px;
+    width: 100px;
+    height: 50px;
+    color: white;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 29px;
+    line-height: 52px;
+    text-align: center;
+
+    position: absolute;
+    top: 45%;
+    left: 81%;
+    transform: translate(-50%, -50%);
+
+
+}
+
+#send-title {
+    position: absolute;
+    top: 68%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 29px;
+    line-height: 52px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+
+#const-actions-price {
+    background-color: #1C1C1C;
+    border-radius: 15px;
+    width: 90px;
+    height: 40px;
+    color: white;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 52px;
+    text-align: center;
+
+    position: absolute;
+    top: 78%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+
+    outline: none;
+    border: none;
+    
+}
+#const-actions-id {
+    background-color: #1C1C1C;
+    border-radius: 15px;
+    width: 90px;
+    height: 40px;
+    color: white;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 52px;
+    text-align: center;
+
+    position: absolute;
+    top: 78%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+
+    outline: none;
+    border: none;
+    
+}
+
+#const-actions-accept {
+    width: 40px;
+    height: 40px;
+    border-radius: 9px;
+
+    background-color: #1C1C1C;
+
+    position: absolute;
+    top: 88%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+#payments {
+    position: absolute;
+    top: 53%;
+    left: 83%;
+    transform: translate(-50%, -50%);
+    height: 500px;
+    width: 300px;
+}
+
+* {
+    user-select: none;
+}
+
+#send {
+    color: white;
+    font-size: 27px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+#send:hover {
+    color: hsl(0, 0%, 60%)
+}
+#free-deposit-icon:hover {
+    color: hsl(0, 0%, 60%)
+}
+#free-withdraw-icon:hover {
+    color: hsl(0, 0%, 60%)
+}
+
+#player-payments {
+    max-height: 413px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;    
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#player-payments> div{
+    outline: none;
+    border: none;
+    width: 250px;
+    height: 45px;
+
+    color: #ffffff;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 40px;
+    text-indent: 20px;
+    background-color: #2D2D2D;
+    border-radius: 20px;
+
+    border-radius: 15px;
+    transform: translateX(10%);
+
+    margin-top: 20px;
+}
+
+
+
+#minus {
+    position: absolute;
+    top: 38%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    height: 30px;
+}
+#plus {
+    position: absolute;
+    top: 45%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    height: 30px;
+}
+
+#free-withdraw-icon {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 70%;
+    left: 22%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+#free-deposit-icon {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 70%;
+    left: 80.2%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: hsl(0, 0%, 60%);
+    border-radius: 5px;
+
+}
+  
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: #2D2D2D;
+    border-radius: 5px;
+}

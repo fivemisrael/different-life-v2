@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap');
+
+
+#crafting-panel {
+    opacity: 0;
+    width: 1350px;
+    height: 700px;
+
+    border-radius: 10px;
+    background-color: #1C1C1C;
+    border-top: 13px solid #4DD5F1;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#nav-bar {
+    width: 200px;
+    height: 685px;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    border-radius: 10px;
+
+    position: absolute;
+    left: 8%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #2D2D2D;   
+    
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+
+}
+
+#nav-bar > div {
+    width: 160px;
+    height: 70px;
+    border-radius: 20px;
+
+    background-color: #4DD5F1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Teko', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    color: white;
+
+}
+
+
+
+
+#nav-bar > div:hover {
+    background-color: #0797B5;
+    transition: background-color 250ms;
+}
+
+#nav-bar > div:first-child {
+    margin-top: 20px;
+}
+
+#screen {
+    
+    width: 900px;
+    height: 650px;
+
+    position: absolute;
+    left: 57.5%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+#main-craft-section {
+    width: 850px;
+    height: 600px;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+
+}
+
+#main-craft-section > #craftnbuild {
+    font-family: 'Teko', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 80px;
+    
+    color: white;
+
+    position: absolute;
+    left: 36%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+
+}
+
+#main-craft-section > #dlbear {
+
+    position: absolute;
+    left: 67%;
+    top: 48%;
+    transform: translate(-50%, -50%);
+
+    width: 800px;
+
+    z-index: -999;
+
+} 
+
+#main-craft-section > #buildurdreams {
+    position: absolute;
+    left: 29%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    font-family: 'Teko', sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 50px;
+
+    color: white;
+}
+
+#items-navigation {
+
+    max-width: 1050px;
+    height: 150px;
+
+    position: absolute;
+    left: 55%;
+    top: 11%;
+    transform: translate(-50%, -50%);
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    
+}
+
+#items-navigation > div {
+    position: relative;
+    min-width: 250px;
+    height: 130px;
+
+    background-color: #2D2D2D;
+
+    margin-left: 20px;
+    border-radius: 20px;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    color: white;
+
+
+}
+
+#items-navigation > div:hover {
+
+    background-color: #2a2a2a;
+    transition: background-color 250ms;
+}
+
+
+.locked {
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-size: 70px;
+    background-image: url("https://cdn.discordapp.com/attachments/769132450357444618/867511543213588520/Vector_1.png");
+}
+
+#item-actions {
+    opacity: 0;
+    background-color: #2D2D2D;
+    border-radius: 15px;
+    width: 950px;
+    height: 450px;
+
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+
+} 
+
+#item-required-tobreak {
+    width: 400px;
+    height: 400px;
+
+    position: absolute;
+    left: 85%;
+    top: 50.5%;
+    transform: translate(-50%, -50%);
+
+}
+
+#item-required-tobreak > h1, #item-required-tocraft > h1 {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 30px;
+    color: white
+}
+
+#item-required-tocraft {
+    width: 400px;
+    height: 400px;
+
+    position: absolute;
+    left: 25%;
+    top: 50.5%;
+    transform: translate(-50%, -50%);
+
+}
+#items {
+    width: 300px;
+    height: 250px;
+
+    position: absolute;
+    left: 38%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    color: white;
+
+
+
+}
+
+
+#action-button {
+    margin-top: 15px;
+    width: 90px;
+    height: 40px;
+    background-color: brown;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 30px;
+    color: white;
+
+
+    border-radius: 15px;
+}
+#action-button:hover {
+    transform: scale(1.1);
+    transition: transform 250ms;
+}
+::-webkit-scrollbar {
+    height: 7px;
+    width: 10px;
+    background-color: hsl(0, 0%, 60%);
+    border-radius: 5px;
+
+}
+  
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: #2D2D2D;
+    border-radius: 5px;
+}
+
+* {
+    user-select: none;
+}

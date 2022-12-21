@@ -1,0 +1,733 @@
+<html style="overflow-y: hidden;">
+<head>
+    <style>
+        body {
+            display: none;
+        }
+
+        #content {
+            position: absolute;
+            border-radius: 5px;
+            background-color: #011b37;
+            width: 75%;
+            height: 80%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+            -moz-box-shadow:    0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+            box-shadow:         0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+        }
+        #badge {
+            position: fixed;
+            display: inline-block;
+            right: 3%;
+            top: 2%;
+            max-width: 175px;
+            height: auto;
+            background-color: #011b37;
+        }
+        #main {
+            position: relative;
+            text-align: center;
+            top: 10%;
+            width: 80%;
+            margin: auto;
+        }
+        #banner {
+            position: fixed;
+            display: inline-block;
+            bottom: 10%;
+            left: 1%;
+            max-width: 300px;
+            height: auto;
+            opacity: 0.3;
+        }
+        #mugshot {
+            display: inline-block;
+            max-width: 215px;
+            height: auto;
+            border: 2px solid #fbbe28;
+            user-select: none;
+        }
+        .report-input {
+            font-family: "Tahoma";
+            border-width:0px;
+            border:none;
+            color: #00a2d6;
+            font-size: 12pt;
+            width: 100%;
+            text-align: left;
+            font-size: 14px;
+            border: 2px solid #fbbe28;
+            width: 100%;
+            text-align: right;
+            padding: 7px 15px 5px 15px;
+        }
+        .page-title {
+            margin-bottom: 30px;
+        }
+        .line {
+            position: fixed;
+            width: 100%;
+            height: 1.5%;
+            background-color: #fbbe28;
+        }
+        .nav-active {
+            text-decoration: underline;
+            text-decoration-color: #fbbe28;
+        }
+        .noselect {
+            user-select: none;
+        }
+        .left-side {
+            float: left;
+            max-width: 50%;
+            max-height: 550px;
+            overflow-y: auto;
+            height: auto;
+            text-align: right;
+            user-select: none;
+        }
+        .right-side {
+            position: absolute;
+            left: 65%;
+            right: 10%;
+            width: 35%;
+            max-width: 300%;
+            max-height: 550px;
+            overflow-y: auto;
+            height: auto;
+            text-align: right;
+            user-select: none;
+        }
+        .modal {
+            z-index: 3;
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.7)
+        }
+        .modal-content {
+            margin: auto;
+            background-color: #011b37;
+            position: relative;
+            padding: 20px 20px;
+            outline: 2px solid #fbbe28;
+            top: 40%;
+            width: 30%;
+        }
+        br {
+            user-select: none;
+        }
+        h2, h3 {
+            font-family: "Tahoma Black";
+            user-select: none;
+            color: #fbbe28;
+            margin: 1px 1px 1px 1px;
+        }
+        h4 {
+            font-family: "Tahoma";
+            font-weight: bolder;
+            font-size: 14px;
+            user-select: none;
+            color: #00a2d6;
+            margin: 1px 1px 1px 1px;
+        }
+        p {
+            font-family: "Tahoma";
+            color: white;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        li {
+            font-family: "Tahoma";
+            font-weight: bolder;
+            color: white;
+            float: left;
+            padding-left: 16px;
+            padding-right: 16px;
+            border-right: 2px solid #fbbe28;
+        }
+        li:last-child {
+            border-right: none;
+        }
+        button {
+            background-color: #fbbe28;
+            color: #011b37;
+            font-family: "Tahoma";
+            font-weight: bolder;
+            border: 4px solid #fbbe28;
+            font-size: 12pt;
+            text-align: center;
+            padding: 4px 3px;
+        }
+        input {
+            background-color: #011b37;
+            font-family: "Tahoma";
+            border: 2px solid #fbbe28;
+            color: #00a2d6;
+            font-size: 12pt;
+            padding: 7px 15px 5px 15px;
+            margin-right: 10px;
+            text-overflow: ellipsis;
+            text-align: left;
+        }
+        textarea {
+            background-color: #011b37;
+            white-space: pre-line;
+            white-space: pre-wrap;
+            font-family: "Tahoma";
+            font-size: 14px;
+            border-width:0px;
+            border:none;
+            color: #00a2d6;
+            font-size: 12pt;
+            padding: 0px 0px 0px 0px;
+            width: 550px;
+            margin-right: 10px;
+            text-overflow: ellipsis;
+            text-align: left;
+            outline: none;
+        }
+        th {
+            font-family: "Tahoma";
+            font-weight: bolder;
+            font-size: 14px;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            border-bottom: 3px solid #fbbe28;
+        }
+        td {
+            font-family: "Tahoma";
+            font-size: 14px;
+            color: #00a2d6;
+            padding: 10px;
+            text-align: center;
+            border-top: 1px solid #fbbe28;
+        }
+        table {
+            border-collapse: collapse;
+            column-gap: 3px solid #fbbe28;
+        }
+        table td + td { 
+            border-left: 2px solid #fbbe28; 
+        }
+        table th + th { 
+            border-left: 2px solid #fbbe28; 
+        }
+        input:focus {
+            outline: none;
+        }
+        button:focus {
+            outline: none;
+        }
+        button:hover {
+            background-color: #00a2d6;
+            border-color: #00a2d6;
+        }
+        ::-webkit-scrollbar {
+            width: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div class="line" style="top: 10%;"></div>
+        <img src="badge.png" id="badge" class="noselect">
+        <img src="footer.png" id="banner" class="noselect">
+        
+        <p class="noselect" style="font-family: 'Tahoma Black'; font-style: italic; font-size: 20pt; text-align: center;">Welcome {{ officer.name }} to LSPD Police Database</p>
+
+        <div style="position: fixed; right: 16%; top: 12.5%;">
+            <ul>
+                <li v-on:click="closeMDT()" id="close-mdt" class="noselect">התנתק</li>
+                <li v-on:click="changePage('Search Reports')" id="search-reports" class="noselect">חיפוש דיווח</li>
+                <li v-on:click="changePage('Warrants')" id="warrants" class="noselect">צווי מעצר</li>
+                <li v-on:click="changePage('Submit Report')" id="submit-report" class="noselect">צור דיווח</li>
+                <li v-on:click="changePage('Search Vehicles')" id="search-vehicles" class="noselect">רכבים</li>
+                <li v-on:click="changePage('Search Offenders')" id="search-offenders" class="noselect">אזרחים</li>
+                <li v-on:click="changePage('Home')" id="home" class="noselect">ראשי</li>
+            </ul>
+        </div>
+
+        <main id="main" style="height: 550px;">
+            <div v-if="page == 'Home'">
+
+                <h2 class="page-title">ראשי</h3>
+    
+                <div class="left-side" style="width: 400px; position: absolute; float: unset;">
+                    <h3>דיווחים אחרונים</h3>
+                    <br />
+                    <span v-if="homepage.reports" v-for="result in homepage.reports">
+                        <h4 style="font-size: 12px; margin-bottom: 3px;"> {{ result.date }} - ID: {{ result.id }} </h4>
+                        <button type="button" class="noselect" v-on:click="report_selected = result; changePage('Search Reports');" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ result.title }} </button>
+                        <br />
+                    </span>
+                </div>
+
+                <div class="left-side" style="width: 400px; position: absolute; top: 55%;">
+                    <h3>חיפוש אדם</h3>
+                    <br />
+                    <h4 v-if="recent_searches.person.length == 0"> ... </h4>
+                    <span v-else-if="recent_searches.person.length > 0" v-for="person in recent_searches.person">
+                        <button type="button" class="noselect" v-on:click="OpenOffenderDetailsById(person.id);" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ person.firstname }}  {{person.lastname}} </button>
+                        <br />
+                    </span>
+                </div>
+
+                <div class="right-side" style="width: 400px; position: absolute; float: unset;">
+                    <h3>צווי מעצר אחרונים</h3>
+                    <br />
+                    <h4 v-if="homepage.warrants == false"> ... </h4>
+                    <span v-else-if="homepage.warrants != false" v-for="warrant in homepage.warrants">
+                        <h4 style="font-size: 12px; margin-bottom: 3px;"> {{ warrant.date }} - ID: {{ warrant.id }} </h4>
+                        <button type="button" class="noselect" v-on:click="warrant_selected = warrant; changePage('Warrant Details');" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ warrant.name }} </button>
+                        <br />
+                    </span>
+                </div>
+
+                <div class="right-side" style="width: 400px; position: absolute; top: 55%;">
+                    <h3>חיפוש רכבים</h3>
+                    <br />
+                    <h4 v-if="recent_searches.vehicle.length == 0"> ... </h4>
+                    <span v-else-if="recent_searches.vehicle.length > 0" v-for="vehicle in recent_searches.vehicle">
+                        <button type="button" class="noselect" v-on:click="OpenVehicleDetails(vehicle);" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ vehicle.plate }} </button>
+                        <br />
+                    </span>
+                </div>
+
+            </div>
+
+            <div v-if="page == 'Search Reports'">
+
+                <h2 class="page-title">חיפוש במאגר הנתונים</h2>
+
+                <form class="noselect">
+                    <input v-model="report_search" type="text" class="noselect" placeholder="שם או מספר הדיווח" required>
+                    <button v-on:click="ReportSearch()" type="button" class="noselect" >חיפוש</button>
+                </form>
+                
+                <br />
+
+                <div class="right-side" style="max-height: 450px;">
+                    <h3>תאריך</h3>
+                    <h4 v-if="report_selected.date"> {{ report_selected.date }} </h4>
+                    <h4 v-else-if="report_selected.date == null"> ... </h4>
+                    <h3>שם</h3>
+                    <h4 v-if="report_selected.name" v-on:click="OpenOffenderDetailsById(report_selected.char_id);"> {{ report_selected.name }} </h4>
+                    <h4 v-else-if="report_selected.name == null"> ... </h4>
+                    <h3>תקרית מספר {{ report_selected.id}}</h3>
+                    <h4 v-if="report_selected.title"> {{ report_selected.title }} </h4>
+                    <h4 v-else-if="report_selected.title == null"> ... </h4>
+                    <h3>האשמות</h3>
+                    <h4 v-if="report_selected.charges == null"> ... </h4>
+                    <span v-for="(amount, offense in report_selected.charges" :key="offense">
+                        <h4>
+                            {{ offense }} (x{{ amount }})
+                        </h4>
+                    </span>
+                    <h4 v-if="report_selected.jailtime">גזר דין: {{ report_selected.jailtime }} חודשים</h4>
+                    <h3>שוטר שהיה מעורב בתקרית</h3>
+                    <h4 v-if="report_selected.author"> {{ report_selected.author }} </h4>
+                    <h4 v-else-if="report_selected.author == null"> ... </h4>
+                    <br />
+                    <button v-if="report_selected.date" type="button" v-on:click="changePage('Report Details')" id="report-details" class="noselect">הצג דיווח</button>
+                    <button v-if="report_selected.date" type="button" v-on:click="changePage('Submit Report'); report_new.charges = report_selected.charges; report_new.title = report_selected.title; report_new.incident = report_selected.incident;" id="report-details" class="noselect">העתק דיווח</button>
+                    <button v-if="report_selected.date" type="button" v-on:click="changePage('Submit Warrant'); warrant_new.report_id = report_selected.id; warrant_new.char_id = report_selected.char_id; warrant_new.report_title = report_selected.title; warrant_new.name = report_selected.name; warrant_new.charges = report_selected.charges;" class="noselect">צו מעצר חדש</button>
+                    <button type="button" style="margin-top: 5px;" v-on:click="changePage('Submit Report')" class="noselect">דיווח חדש</button>
+                </div>
+
+                <div class="left-side" style="max-height: 435px;">
+                    <div v-if="report_results.results">
+                        <h2 style="text-align: center; margin-bottom: 10px;">תוצאות החיפוש</h3>
+                        <span v-if="report_results.results" v-for="result in report_results.results">
+                            <h4 style="font-size: 12px; margin-bottom: 3px;"> {{ result.date }} - ID: {{ result.id }} </h4>
+                            <button type="button" class="noselect" v-on:click="report_selected = result;" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ result.title }} </button>
+                            <br />
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div v-if="page == 'Submit Report'">
+                
+                <h2 class="page-title">דיווח חדש</h2>
+                
+                <div class="right-side" style="max-height: 450px; overflow: hidden;">
+                    <form class="noselect">
+                        <h3>שם</h3>
+                        <h4 v-if="report_new.name" style="font-size: 14px;"> {{ report_new.name }} </h4>
+                        <h4 v-else-if="report_new.name == null"> ... </h4>
+                        <h3>תקרית</h3>
+                        <input v-model="report_new.title" type="text" class="noselect report-input" placeholder="הזן פרטי דיווח" required>
+                        <h3>פרטים</h3>
+                        <textarea v-model="report_new.incident" id="textarea2" class="noselect report-input" rows="6" cols="55" placeholder="הזן פרטי אירוע" required>
+                        </textarea>
+                        <h3>האשמות</h3>
+                        <h4 v-if="Object.keys(report_new.charges).length == 0"> ... </h4>
+                        <span v-for="(amount, offense in report_new.charges" :key="offense">
+                            <h4 style="font-size: 14px;">
+                                <span v-on:click="RemoveCharge(offense)" style="color: red; font-weight: all;">(-)</span> 
+                                {{ offense }} (x{{ amount }})
+                            </h4>
+                        </span>
+                        <h4 v-if="report_new.recommended_fine > 0">קנוס: ${{report_new.recommended_fine}}</h4>
+                        <h4 v-if="report_new.recommended_sentence > 0">גזר הדין המומלץ: {{report_new.recommended_sentence}} חודשים</h4>
+                        <h3 v-if="report_new.recommended_sentence > 0">גזר דין</h3>
+                        <input v-if="report_new.recommended_sentence > 0" v-model="report_new.sentence" style="font-size: 14px; margin-bottom: 5px;" type="text" class="noselect" placeholder="Enter months" class="report-input" required>
+                        <br />
+                        <button v-on:click="SubmitNewReport()" type="button" class="noselect" style="margin-top: 20px">אישור דיווח</button>
+                        <button v-if="report_new.focus == 'charges'" v-on:click="report_new.focus = 'name'" type="button" class="noselect" style="margin-top: 20px">חיפוש עבריין</button>
+                        <button v-if="report_new.focus == 'name'" v-on:click="report_new.focus = 'charges'" type="button" class="noselect" style="margin-top: 20px">חיפוש דוחות</button>
+                    </form>
+                </div>
+
+                <div class="left-side" style="position: absolute; top: 15%;">
+                    <div v-if="report_new.focus == 'name'">
+                        <h3 style="text-align: center;">חיפוש אזרח</h3>
+                        <form class="noselect">
+                            <input v-model="offender_search" type="text" class="noselect" placeholder="שם מלא או חלקי" required>
+                            <button v-on:click="OffenderSearch()" type="button" class="noselect">חיפוש</button>
+                        </form>
+
+                        <div v-if="offender_results.query" style="max-height: 400px;">
+                            <span v-if="offender_results.results" v-for="offender in offender_results.results">
+                                <button type="button" class="noselect" v-on:click="report_new.char_id = offender.id; report_new.name = offender.firstname + ' ' + offender.lastname; report_new.focus='charges'" style="margin-bottom: 10px; width: 100%; padding: unset;">{{ offender.firstname }} {{ offender.lastname }}</button>
+                                <br />
+                            </span>
+                        </div>
+                    </div>
+
+                    <div style="width: 300px;" v-else-if="report_new.focus == 'charges'">
+                        <h3 style="text-align: center;">חיפוש דוחות</h3>
+                        <div v-if="offenses" style="height: 400px;">
+                            <form class="noselect">
+                                <input v-model="report_new.charges_search" type="text" class="noselect" placeholder="סינון דוחות" style="width: 100%;" required>  
+                            </form>
+                            <span v-for="offense in filtered_offenses">
+                                <button type="button" class="noselect" v-on:click="AddCharge(offense.id)" style="margin-bottom: 10px; width: 100%; padding: unset;">{{ offense.label }}</button>
+                                <br />
+                            </span>
+                        </div>
+                        <h4 v-else-if="offenses == false">טוען דוחות...</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div v-if="page == 'Search Offenders'">
+
+                <h2 class="page-title">חיפוש במאגר הנתונים</h2>
+
+                <form class="noselect">
+                    <button v-on:click="OffenderSearch()" type="button" class="noselect">חיפוש</button>
+                    <input v-model="offender_search" type="text" style="text-align: right;" class="noselect" placeholder="שם מלא או חלקי" required>
+                </form>
+                
+                <br />
+
+                <div class="right-side" style="max-height: 550px; margin-top: -50px;">
+                    <h3>שם</h3>
+                    <h4 v-if="offender_selected.firstname"> {{ offender_selected.firstname }} {{ offender_selected.lastname }} </h4>
+                    <h4 v-else-if="offender_selected.name == null"> ... </h4>
+                    <h3>תעודת זהות</h3>
+                    <h4 v-if="offender_selected.citizenid"> {{ offender_selected.citizenid }} </h4>
+                    <h4 v-else-if="offender_selected.citizenid == null"> ... </h4>
+                    <h3>טביעת אצבע</h3>
+                    <h4 v-if="offender_selected.fingerprint"> {{ offender_selected.fingerprint }} </h4>
+                    <h4 v-else-if="offender_selected.fingerprint == null"> ... </h4>
+                    <h3>הערות</h3>
+                    <h4 v-if="offender_selected.notes"> {{ offender_selected.notes }} </h4>
+                    <h4 v-if="offender_selected.haswarrant"> {{ offender_selected.firstname}} {{offender_selected.lastname}} יש צו מעצר פעיל... </h4>
+                    <h4 v-else-if="offender_selected.notes == '' && !offender_selected.haswarrant"> ... </h4>
+                    <h3>רשיונות</h3>
+                    <h4 v-if="offender_selected.licenses == false"> ... </h4>
+                    <span v-else-if="offender_selected.licenses" v-for="license in offender_selected.licenses">
+                        <h4>{{ license }}</h4>
+                    </span>
+                    <h3>הרשעות</h3>
+                    <h4 v-if="offender_selected.convictions == null"> ... </h4>
+                    <span v-else-if="offender_selected.convictions" v-for="(value, name) in offender_selected.convictions">
+                        <h4>{{ name }} x{{ value }}</h4>
+                    </span>
+                    <h3>תאריך לידה</h3>
+                    <h4 v-if="offender_selected.birthdate"> {{ offender_selected.birthdate }} </h4>
+                    <h4 v-else-if="offender_selected.birthdate == null"> ... </h4>
+                    <br />
+                    <button v-if="offender_selected.firstname" type="button" v-on:click="changePage('Edit Offender')" id="edit-offender" class="noselect">ערוך פרופיל</button>
+                    <button v-if="offender_selected.firstname" type="button" v-on:click="changePage('Submit Report'); report_new.char_id = offender_selected.id; report_new.name = offender_selected.firstname + ' ' + offender_selected.lastname; report_new.focus = 'charges'" id="edit-offender" class="noselect">דיווח חדש</button>
+                </div>
+
+                <div class="left-side" style="max-height: 435px">
+                    <div v-if="offender_results.query">
+                        <h2 style="text-align: center; margin-bottom: 10px;">תוצאות החיפוש</h3>
+                        <span v-if="offender_results.results" v-for="offender in offender_results.results">
+                            <button type="button" class="noselect" v-on:click="OpenOffenderDetails(offender.id)" style="margin-bottom: 10px; width: 100%; padding: unset;">{{ offender.firstname }} {{ offender.lastname }}</button>
+                            <br />
+                        </span>
+                    </div>
+
+                    <div v-else-if="offender_results.results == false">
+                        <img v-if="offender_selected.mugshot_url" v-bind:src="offender_selected.mugshot_url" alt="mugshot" id="mugshot">
+                        <img v-else-if="offender_selected.mugshot_url == ''" src="mugshot.png" alt="mugshot" id="mugshot">
+                    </div>
+                </div>
+
+            </div>
+
+            <div v-if="page == 'Report Details'">
+                <h2 class="page-title">פרטי דיווח</h2>
+                <br />
+                <div class="left-side" style="max-width: 1000px; float: unset; margin: 0 auto; max-height: 475px;">
+                    <h3>תאריך</h3>
+                    <h4 v-if="report_selected.date"> {{ report_selected.date }} </h4>
+                    <h4 v-else-if="report_selected.date == null"> ... </h4>
+                    <h3>שם</h3>
+                    <h4 v-if="report_selected.name" v-on:click="OpenOffenderDetailsById(report_selected.char_id)"> {{ report_selected.name }} </h4>
+                    <h4 v-else-if="report_selected.name == null"> ... </h4>
+                    <template v-if="report_edit.enable == false">
+                        <h3>מקרה #{{report_selected.id}}</h3>
+                        <h4 v-if="report_selected.title"> {{ report_selected.title }} </h4>
+                        <h4 v-else-if="report_selected.title == null"> ... </h4>
+                    </template>
+                    <template v-else-if="report_edit.enable == true">
+                        <h3>מקרה #{{report_selected.id}} (עריכה)</h3>
+                        <input v-model="report_edit.data.title" type="text" class="noselect" placeholder="הזן כותרת לדיווח" class="report-input" style="font-size: 14px;" required>
+                    </template>
+                    <template v-if="report_edit.enable == false">
+                        <h3>פרטים</h3>
+                        <h4 v-if="report_selected.incident" style="white-space: pre-line; white-space: pre-wrap;">{{ report_selected.incident }}</h4>
+                        <h4 v-else-if="report_selected.incident == null"> ... </h4>
+                        <h4 v-if="report_selected.jailtime">גזר דין: {{ report_selected.jailtime }} חודשים</h4>
+                    </template>
+                    <template v-else-if="report_edit.enable == true">
+                        <h3>פרטים (עריכה)</h3>
+                        <form>
+                            <textarea v-model="report_edit.data.incident" id="textarea" class="noselect" style="width: 95%; height: 80px; border: 2px solid #fbbe28; padding: 7px 15px 5px 15px; margin: unset; font-size: 14px;" onfocus='this.style.height = "";this.style.height = this.scrollHeight + "px"' onkeypress='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="הזן פרטי דיווח" required>
+                            </textarea>
+                        </form>
+                    </template>
+                    <h3>דוחות</h3>
+                    <span v-for="(amount, offense) in report_selected.charges" :key="offense">
+                        <h4>
+                            {{ offense }} (x{{ amount }})
+                        </h4>
+                    </span>
+                    <h3>שוטר שהיה מעורב בתקרית</h3>
+                    <h4 v-if="report_selected.author"> {{ report_selected.author }} </h4>
+                    <h4 v-else-if="report_selected.author == null"> ... </h4>
+                    <br />
+                    <button type="button" v-on:click="changePage('Search Reports')" id="search-reports" class="noselect">חזור לדיווחים</button>
+                    <button v-if="report_edit.enable == false" type="button" v-on:click="SentencePlayer()" class="noselect">גזר דין</button>
+                    <button v-if="report_edit.enable == false" type="button" v-on:click="ToggleReportEdit()" class="noselect">ערוך</button>
+                    <button v-if="report_edit.enable == false" type="button" v-on:click="DeleteSelectedReport()" class="noselect">מחק</button>
+                    <template v-else-if="report_edit.enable">
+                        <button type="button" v-if="report_edit.data.incident && report_edit.data.title" v-on:click="SaveReportEditChanges();" class="noselect">שמור</button>
+                        <button type="button" v-on:click="ToggleReportEdit();" class="noselect">ביטול</button>
+                    </template>
+                </div>
+            </div>
+
+            <div v-if="page == 'Edit Offender'">
+                <h2 class="page-title">ערוך פרופיל</h2>
+    
+                <br />
+                <div class="left-side">
+                    <form class="noselect">
+                        <h3>הערות</h3>
+                        <input v-model="offender_changes.notes" class="no-select" type="text" v-bind:placeholder="offender_selected.notes">
+                        <h3 style="margin-top: 20px">קישור לתמונה</h3>
+                        <input v-model="offender_changes.mugshot_url" class="noselect" type="text" v-bind:placeholder="offender_selected.mugshot_url">
+                        <h3 style="margin-top: 20px">רישיונות</h3>
+                        <h4 v-if="offender_changes.licenses == false"> ... </h4>
+                        <span v-else-if="offender_changes.licenses" v-for="license in offender_changes.licenses">
+                            <h4>
+                                <span v-on:click="RemoveLicense(license)" style="color: red; font-weight: all;">(-)</span> 
+                                {{ license }}
+                            </h4>
+                        </span>
+                        <br />
+                        <button type="button" class="noselect" v-on:click="SaveOffenderChanges()" style="margin-top: 20px">שמור שינויים</button>
+                    </form>
+                </div>
+                <div class="right-side">
+                    <h3>הרשעות</h3>
+                    <h4 v-if="offender_changes.convictions == null || (offender_changes.convictions && Object.keys(offender_changes.convictions).length == 0)"> ... </h4>
+                    <span v-else-if="offender_changes.convictions" v-for="(value, name) in offender_changes.convictions">
+                        <h4>
+                            <span v-on:click="RemoveConviction(name)" style="color: red; font-weight: all;">(-)</span> 
+                            {{ name }} x{{ value }}
+                        </h4>
+                    </span>
+                    <br />
+                    <button type="button" class="noselect" v-on:click="changePage('Search Offenders')">חזרה לפרופיל</button>
+                </div>
+            </div>
+
+            <div v-if="page == 'Warrants'">
+                <h2 class="page-title">צווי מעצר פעילים</h2>
+                <form class="noselect">
+                    <input v-model="warrant_search" type="text" class="noselect" placeholder="סינון צווי מעצר" required>
+                </form>
+                <br />
+
+                <div style="max-width: 1000px; width: 1000px; float: unset; margin: 0 auto;">
+                    <table v-if="filtered_warrants.length > 0" style="margin: 0 auto;">
+                        <tr>
+                            <th>שם</th>
+                            <th>דיווח</th>
+                            <th>תאריך רישום</th>
+                            <th style="column-width: 140px;">פג תוקף</th>
+                        </tr>
+                        <tr v-for="warrant in filtered_warrants" v-on:click="changePage('Warrant Details'); warrant_selected = warrant;">
+                            <td>{{warrant.name}}</td>
+                            <td style="overflow: hidden; text-overflow: ellipsis; max-width: 500px; max-height: 10px;">{{warrant.report_title}}</td>
+                            <td>{{warrant.date}}</td>
+                            <td style="padding: 5px;">{{warrant.expire_time}}</td>
+                        </tr>
+                    </table>
+                    <h4 v-else-if="filtered_warrants.length == 0" style="text-align: center; font-size: 20px; font-weight: bold;"><br />לא נמצאו צווי מעצר!</h4>
+                    <div style="bottom: 0%">
+                        <button v-on:click="changePage('Submit Warrant')" type="button" class="noselect" style="margin-top: 30px;">צו מעצר חדש</button>
+                    </div>
+                </div>
+            </div>
+
+            <div v-if="page == 'Search Vehicles'">
+                <h2 class="page-title">חיפוש במאגר הנתונים</h2>
+
+                <form class="noselect">
+                    <button v-on:click="VehicleSearch()" type="button" class="noselect">חיפוש</button>
+                    <input v-model="vehicle_search" style="text-align: right;" type="text" class="noselect" placeholder="לוחית רישוי" required>
+                </form>
+                
+                <br />
+
+                <div class="right-side">
+                    <h3>לוחית רישוי</h3>
+                    <h4 v-if="vehicle_selected.plate"> {{vehicle_selected.plate}} </h4>
+                    <h4 v-else-if="vehicle_selected.plate == null"> ... </h4>
+                    <h3>בעלים</h3>
+                    <h4 v-if="vehicle_selected.owner" v-on:click="OpenOffenderDetailsById(vehicle_selected.owner_id)"> {{vehicle_selected.owner}} </h4>
+                    <h4 v-else-if="vehicle_selected.owner == null"> ... </h4>
+                    <h3>מודל</h3>
+                    <h4 v-if="vehicle_selected.model"> {{vehicle_selected.model}} </h4>
+                    <h4 v-else-if="vehicle_selected.model == null"> ... </h4>
+                    <h3>צבע</h3>
+                    <h4 v-if="vehicle_selected.color"> {{vehicle_selected.color}} </h4>
+                    <h4 v-else-if="vehicle_selected.color == null"> ... </h4>
+                </div>
+
+                <div class="left-side" style="max-height: 435px">
+                    <div v-if="vehicle_results.results">
+                        <h2 style="text-align: center; margin-bottom: 10px;">תוצאות החיפוש</h3>
+                        <span v-if="vehicle_results.results" v-for="result in vehicle_results.results">
+                            <button type="button" class="noselect" v-on:click="OpenVehicleDetails(result)" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ result.plate }} </button>
+                            <br />
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div v-if="page == 'Submit Warrant'">
+                <h2 class="page-title">צו מעצר חדש</h2>
+
+                <div class="left-side" style="position: absolute; float: none; top: 15%; max-height: 450px;">
+                    <form class="noselect">
+                        <h3>דיווח</h3>
+                        <h4 v-if="warrant_new.report_title" style="font-size: 14px;"> {{ warrant_new.report_title }} </h4>
+                        <h4 v-else-if="warrant_new.report_title == null"> ... </h4>
+                        <h3>שם</h3>
+                        <h4 v-if="warrant_new.name" style="font-size: 14px;"> {{ warrant_new.name }} </h4>
+                        <h4 v-else-if="warrant_new.name == null"> ... </h4>
+                        <h3>הערות</h3>
+                        <input v-model="warrant_new.notes" style="font-size: 14px; width: 400px;" type="text" class="noselect" placeholder="Enter warrant notes (optional)" class="report-input" required>
+                        <h3>דוחות</h3>
+                        <h4 v-if="Object.keys(warrant_new.charges).length == 0"> ... </h4>
+                        <span v-else-if="Object.keys(warrant_new.charges).length > 0" v-for="(amount, offense in warrant_new.charges" :key="offense">
+                            <h4 style="font-size: 14px;">
+                                {{ offense }} (x{{ amount }})
+                            </h4>
+                        </span>
+                        <button v-if="warrant_new.report_id && warrant_new.char_id" v-on:click="SubmitNewWarrant()" type="button" class="noselect" style="margin-top: 20px">אישור צו מעצר</button>
+                    </form>
+                </div>
+
+                <div class="right-side" style="max-height: 450px;">
+                    <h3 v-if="report_results.results">תוצאות חיפוש</h3>
+                    <h3 v-else-if="report_results.query == ''">חיפוש דיווחים</h3>
+                    <br />
+                    <form class="noselect">
+                        <input v-model="warrant_new.report_search" type="text" class="noselect" placeholder="שם או מספר התקרית" required>
+                        <button v-on:click="WarrantReportSearch()" type="button" class="noselect" >חיפוש</button>
+                    </form>
+                    <div v-if="report_results.results">
+                        <h4 style="margin: 10px 1px 30px 1px;">נמצאו תוצאות אחר '{{ warrant_new.report_search }}'...</h4>
+                        <span v-if="report_results.results" v-for="result in report_results.results">
+                            <h4 style="font-size: 12px; margin-bottom: 3px;"> {{ result.date }} - ID: {{ result.id }} </h4>
+                            <button type="button" class="noselect" v-on:click="warrant_new.report_title = result.title; warrant_new.name = result.name; warrant_new.charges = result.charges; warrant_new.report_id = result.id; warrant_new.char_id = result.char_id;" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ result.title }} </button>
+                            <br />
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div v-if="page == 'Warrant Details'">
+                <h2 class="page-title">פרטי צו מעצר</h2>
+                <br />
+                <div class="left-side" style="max-width: 1000px; float: unset; margin: 0 auto;">
+                    <h3>תאריך</h3>
+                    <h4 v-if="warrant_selected.date"> {{ warrant_selected.date }} </h4>
+                    <h4 v-else-if="warrant_selected.date == null"> ... </h4>
+                    <h3>שם</h3>
+                    <h4 v-if="warrant_selected.name" v-on:click="OpenOffenderDetailsById(warrant_selected.char_id)"> {{ warrant_selected.name }} </h4>
+                    <h4 v-else-if="warrant_selected.name == null"> ... </h4>
+                    <h3>דיווח</h3>
+                    <h4 v-if="warrant_selected.report_title" v-on:click="OpenReportById(warrant_selected.report_id)"> {{ warrant_selected.report_title }} </h4>
+                    <h4 v-else-if="warrant_selected.report_title == null"> ... </h4>
+                    <h3>הערות</h3>
+                    <h4 v-if="warrant_selected.notes"> {{ warrant_selected.notes }} </h4>
+                    <h4 v-else-if="warrant_selected.notes == null"> ... </h4>
+                    <h3>דוחות</h3>
+                    <span v-for="(amount, offense) in warrant_selected.charges" :key="offense">
+                        <h4>
+                            {{ offense }} (x{{ amount }})
+                        </h4>
+                    </span>
+                    <h3>מחבר</h3>
+                    <h4 v-if="warrant_selected.author"> {{ warrant_selected.author }} </h4>
+                    <h4 v-else-if="warrant_selected.author == null"> ... </h4>
+                    <h3>תאריך תפוגה</h3>
+                    <h4 v-if="warrant_selected.expire_time"> {{ warrant_selected.expire_time }} </h4>
+                    <h4 v-else-if="warrant_selected.expire_time == null"> ... </h4>
+                    <br />
+                    <button type="button" v-on:click="changePage('Warrants')" id="warrants" class="noselect">חזור לצווי מעצר</button>
+                    <button type="button" v-on:click="DeleteSelectedWarrant()" class="noselect">מחק</button>
+                </div>
+            </div>
+        </main>
+        
+        <p class="noselect" style="font-family: 'Tahoma Black'; font-style: italic; font-size: 20pt; position: fixed; bottom: 1%; right: 5.5%; direction: rtl;">Los Santos Police Department</p>
+        <div class="line" style="bottom: 10%"></div>
+    </div> 
+
+
+    <script src="vue.min.js"></script>
+    <script
+        src = "https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity = "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin = "anonymous">
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

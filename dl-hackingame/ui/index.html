@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dl-hackingame</title>
+    <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <script src="./main.js" defer></script>
+</head>
+<body>
+
+    <audio id="pressAudio">
+        <source src="./press.mp3" type="audio/ogg">
+    </audio>
+    <audio id="errorAudio">
+        <source src="./error.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="hacking-container">
+        <div id="loading">
+            <img id="loading-bear" src="bear-imgs/dlbear_1.png">
+            <a id="loading-text"></a>
+        </div> 
+        <div id="hacking-minigame">
+            <a id="amount">0/10</a>
+            <div id="points">
+            </div>
+            <i id="life1" class="fas fa-times-circle"></i>
+            <i id="life2" class="fas fa-times-circle"></i>
+            <i id="life3" class="fas fa-times-circle"></i>
+    
+        </div>
+
+    </div>
+    <div id="hacking-failed">
+        <img id="failed-bear" src="bear-imgs/dlbear_dead.png">
+        <a id="failed-text">FAILED</a>
+
+    </div>
+    <div id="hacking-success">
+        <img id="failed-bear" src="bear-imgs/dlbear_dead.png">
+        <a id="failed-text">SUCCESS</a>
+
+    </div>
+
+</body>
+</html>

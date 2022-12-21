@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dl-banking</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">   
+    <script data-search-pseudo-elements defer src="https://pro.fontawesome.com/releases/v5.10.1/js/all.js"></script>
+</head>
+<body>
+    <div id="notif-container">
+        <i id="notif-icon" class="fas fa-exclamation-circle"></i>
+        <a id="notif-text">You are not that rich mate</a>
+    </div>
+
+    <div id="banking-container">
+        <div id="header">
+            <a id="title">DL Banking</a>
+            <div id="hr1"></div>
+        </div>
+        <div id="information">
+            <h1>Information</h1>
+            <div id="character-name">Character Name</div>
+            <div id="current-time">Time</div>
+            <div id="character-balance">Balance</div>
+
+        </div>
+        <div id="hr2"></div>
+
+        <div id="free-actions">
+            <a id="free-action-withdraw">Withdraw</a>
+            <input id="free-withdraw" placeholder="Price">
+            <i id="free-withdraw-icon" class="fas fa-check-circle"></i>
+            <a id="free-action-deposit">Deposit</a>
+            <input id="free-deposit" placeholder="Price">
+            <i id="free-deposit-icon" class="fas fa-check-circle"></i>
+
+        </div>
+        <div id="const-actions">
+            <a id="withdraw-title">Withdraw</a>
+            <div id="withdraw-100">100$</div>
+            <div id="withdraw-500">500$</div>
+            <div id="withdraw-1000">1000$</div>
+            <a id="deposit-title">Deposit</a>
+            <div id="deposit-100">100$</div>
+            <div id="deposit-500">500$</div>
+            <div id="deposit-1000">1000$</div>
+            <a id="send-title">Send Money</a>
+
+            <input id="const-actions-price" placeholder="Price" type="text">
+            <input id="const-actions-id" placeholder="ID" type="text">
+
+            <div id="const-actions-accept">
+                <i id="send" class="fas fa-check-circle"></i>
+            </div>
+        </div>
+
+        <div id="payments">
+            <h1>Payments</h1>
+            <div id="player-payments">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

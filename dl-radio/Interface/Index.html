@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./Index.css"></link>
+        <script defer src="./Index.js"></script>
+        <title>dl-radio</title>
+    </head>
+    <body>
+        <img id="RadioMain" src="./Resources/dl-radio.png">
+            <input type="number" id="RadioInput" step="0.1" min="1.0" max="999.9" placeholder="1-999.9" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0,this.maxLength);" maxlength = "5"></input>
+            <button id="ConnectButton"></button>
+            <button id="DisconnectButton"></button>
+        </img>
+    </body>
+</html>
